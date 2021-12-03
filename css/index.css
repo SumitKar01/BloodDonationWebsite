@@ -1,0 +1,122 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background: darkred;
+}
+.container{
+    width: 90%;
+    margin: 0 auto;
+    
+}
+/* Header Start */
+header{
+    background-color: rgb(126, 27, 27);
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    padding-bottom: 60px;
+    
+}
+
+header .container #title{
+    float: left;
+}
+header .container #title h2{
+    font-size: 30px;
+    font-weight: bold;
+}
+header .container nav{
+    float: right;
+}
+header .container nav ul{
+    list-style: none;
+    display: block;
+    
+}
+header .container nav ul li{
+    display: inline-block;
+    margin: 0 10px;
+}
+header .container nav ul li a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    
+}
+header .container nav ul li a:hover{
+    color: rgb(255, 217, 0);
+}
+/* Header End */
+/*Search Start*/
+#search{
+    background-color: rgb(255, 217, 0);
+    /* padding: 50px; */
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.search-donor{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#search h2{
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+#search .container .form-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    
+}
+
+.blood-group{
+    padding: 20px;
+}
+.district{
+    padding: 20px;
+}
+
+#search .container form .search_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+/*Search End*/
+/*Join Us Start*/
+#join-us{
+    background-color: rgb(126, 27, 27);
+    padding: 50px;
+    min-height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#join-us h2{
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+#join-us .join-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+/*Join Us End*/
+/*Footer Start*/
+footer{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding: 20px;
+    /* text-align: center; */
+}
