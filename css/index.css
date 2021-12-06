@@ -15,7 +15,7 @@ body{
     
 }
 .button{
-    width:30%;
+    min-width:30%;
     height: 40px;
     border: none;
     background-color: #fff;
@@ -147,7 +147,7 @@ header .container nav ul li a:hover{
     background-color: #3d4d57;
     color: #fff;
     border: none;
-    width: 60%;
+    min-width: 60%;
     border-radius: 5px;
     cursor: pointer;
     height: 40px;
@@ -181,12 +181,14 @@ header .container nav ul li a:hover{
 
 }
 /*Join Us End*/
-
+/* Register Start */
 
 #register-area{
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     margin-top: 50px;
+    overflow: hidden;
     
 }
 #register-area label{
@@ -223,6 +225,80 @@ header .container nav ul li a:hover{
     color: #fff;
 }
 
+/* Register End */
+/* Login Start */
+
+
+#login-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  
+}
+#login-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#login-text{
+    flex: 1;
+    text-align: center;
+}
+.login-box{
+    flex: 1;
+    padding: 20px;
+}
+.login-box label{
+    font-size: 20px;
+    font-weight: bold;
+    color: #3d4d57;
+    display: block;
+    
+}
+.login-box input{
+    height: 40px;
+    border: 1px solid #3d4d57;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    padding-left: 10px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#username-box{
+    flex: 1;
+    padding-bottom: 10px;
+}
+#password-box{
+    flex: 1;
+    padding-bottom: 10px;
+}
+#login-button input[type="submit"]{
+    background-color: #fff;
+    color: #000;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 40px;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#login-button input[type="submit"]:hover{
+    background-color: #ED0404;
+    color: #fff;
+}
+#forgot{
+    text-align: right;
+    
+}
+/* Login End */
 
 /*Footer Start*/
 footer{
