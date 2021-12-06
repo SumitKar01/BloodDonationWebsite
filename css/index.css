@@ -234,29 +234,23 @@ header .container nav ul li a:hover{
     justify-content: center;
     align-items: center;
     height: 100vh;  
+    
 }
-#login-box{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-#login-text{
-    flex: 1;
+#login-area h1{
+    font-size: 30px;
+    font-weight: bold;
+    color: #3d4d57;
     text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 30px;
 }
-.login-box{
-    flex: 1;
-    padding: 20px;
-}
-.login-box label{
+#login-box label{
     font-size: 20px;
     font-weight: bold;
     color: #3d4d57;
-    display: block;
     
 }
-.login-box input{
+#login-box input{
     height: 40px;
     border: 1px solid #3d4d57;
     border-radius: 5px;
@@ -265,18 +259,21 @@ header .container nav ul li a:hover{
     box-sizing: border-box;
     padding-left: 10px;
     font-size: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
 }
 #username-box{
-    flex: 1;
+
     padding-bottom: 10px;
 }
+#username-box input{
+    width: 100%;
+}
 #password-box{
-    flex: 1;
+
     padding-bottom: 10px;
+}
+#password-box input{
+    width: 100%;
 }
 #login-button input[type="submit"]{
     background-color: #fff;
@@ -289,7 +286,6 @@ header .container nav ul li a:hover{
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
 #login-button input[type="submit"]:hover{
     background-color: #ED0404;
     color: #fff;
