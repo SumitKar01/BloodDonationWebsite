@@ -31,22 +31,22 @@
             <div id="register-area">
                 <h1>Register now and be a part of our community</h1>
                 <br>
-                <form action="" method="post">
+                <form action="register.php" method="post">
                     <div class="name-box">
                         <label for="name">Name</label>
-                        <input type="text" id="name"name="name" placeholder="Full Name">
+                        <input type="text" id="name"name="name" placeholder="Full Name" required>
                     </div>
                     <div class="phone-box">
                         <label for="phone">Phone Number</label>
-                        <input type="text" id="phone" name="phone" placeholder="+8801XXXXXXXXX">
+                        <input type="text" id="phone" name="phone" placeholder="+8801XXXXXXXXX" required>
                     </div>
                     <div class="phone-box">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="example@email.com">
+                        <input type="email" id="email" name="email" placeholder="example@email.com" required>
                     </div>
                     <div class="blood-box">
                         <label for="blood">Blood Group</label>
-                        <select name="blood" id="blood">
+                        <select name="blood" id="blood" required>
                             <option value="A+">A+</option>
                             <option value="A-">A-</option>
                             <option value="B+">B+</option>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="dob-box">
                         <label for="dob">Date of birth</label>
-                        <input type="date" name="dob" id="dob">
+                        <input type="date" name="dob" id="dob" required>
                     </div>
                     <div class="district-box">
                         <label for="district">District</label>
@@ -132,15 +132,15 @@
                     </div>
                     <div class="nid-box">
                         <label for="nid">NID No</label>
-                        <input type="number" name="nid" id="nid" placeholder="NID Number">
+                        <input type="number" name="nid" id="nid" placeholder="NID Number" required>
                     </div>
                     <div class="username-box">
                         <label for="username">Username</label>
-                        <input type="text" name="username" id="username" placeholder="username">
+                        <input type="text" name="username" id="username" placeholder="username" required>
                     </div>
                     <div class="password-box">
                         <label for="password">Password</label>
-                        <input type="password" id="password" name="password" placeholder="*****">
+                        <input type="password" id="password" name="password" placeholder="*****" required>
                     </div>
                 
                     <input type="submit" value="Submit">
