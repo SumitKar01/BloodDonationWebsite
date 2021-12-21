@@ -76,6 +76,7 @@ header .container nav ul li a:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 20px;
 
 }
 #search-donor{
@@ -92,6 +93,7 @@ header .container nav ul li a:hover{
     font-weight: bold;
     color: #3d4d57;
     text-align: center;
+    padding-right: 50px;
 }
 #search-form{
     flex:1;
