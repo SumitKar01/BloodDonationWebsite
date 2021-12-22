@@ -306,3 +306,10 @@ footer{
     /* text-align: center; */
 }
 /*Footer End*/
+
+#not-found{
+    background-color: #f2f2f2;
+    color: #ED0404;
+    padding: 20px;
+    text-align: center;
+}
