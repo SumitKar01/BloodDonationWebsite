@@ -72,7 +72,7 @@ if(isset($_POST['submit'])){
                         <input type="password" name="password" id="password" placeholder="Password">
                     </div>
                     <div id="forgot">
-                        <p>
+                        <p class= "danger"> 
                         <?php
                             if($falsepass==true){
                                 echo "Wrong username or password";
