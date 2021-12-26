@@ -326,6 +326,10 @@ footer{
     border-width: 1px;
     
 }
+#details-area td{
+    padding: 5px;
+    font-size: 16px;
+}
 
 #status-box, #update-details-box, #update-login-box, #user-search-box, #user-delete-box{
     display: flex;
@@ -372,7 +376,7 @@ footer{
 #status-box input[type="submit"], #update-details-box input[type="submit"], #update-login-box input[type="submit"], #user-search-box input[type="submit"], #user-delete-box input[type="submit"]{
     background-color: #fff;
     color: #000;
-    width: 20%;
+    width: 150px;
     border-radius: 5px;
     cursor: pointer;
     height: 40px;
