@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
         $row = mysqli_fetch_assoc($result);
         $_SESSION['nid'] = $row['nid'];
         $_SESSION['loggedin'] = true;
-        header("Location: account.php");
+        header("Location: userdashboard.php");
         
     }
     else{
