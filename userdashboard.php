@@ -21,8 +21,6 @@ $location=$donor['location'];
 
 
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +41,7 @@ $location=$donor['location'];
             <nav>
                 <ul>
                     <li><a href=""><?php echo"Welcome "."$name"; ?></a></li>
-                    <li><a href="index.html">Logout</a></li>
+                    <li><a href="logout.php">Logout</a></li>
 
                 </ul>
             </nav>
@@ -87,13 +85,19 @@ $location=$donor['location'];
                 <h1>
                     Update Donation Status
                 </h1>
-                <form action="" method="post">
+                <form action="userdashboard.php" method="post">
                     <label for="type">Are you ready to Donate Blood?</label>
                     <select name="type" id="type" required>
                         <option value="donor">Yes</option>
                         <option value="recipient">No</option>
                     </select>
-                    <input type="submit" value="Update">
+                    <input type="submit" value="Update" name="donate">
+                    <?php if(isset($_POST['donate']))
+                        {
+                            $sql="UPDATE users SET type='$_POST[type]' WHERE nid='$nid'";
+                            mysqli_query($db, $sql);
+                        } 
+                    ?>
                 </form>
             </div>
         </div>
@@ -104,29 +108,53 @@ $location=$donor['location'];
                 <h1>
                     Update Your Personal Details
                 </h1>
-                <form action="" method="post">
+                <form action="userdashboard.php" method="post">
                     <div class="name-box">
                         <label for="name">Name</label>
                         <input type="text" id="name"name="name" placeholder="Full Name" required>
-                        <input type="submit" value="Update">
+                        <input type="submit" value="Update" name="update-name">
+                        <?php 
+                            if(isset($_POST['update-name']))
+                            {
+                                $sql="UPDATE person SET name='$_POST[name]' WHERE nid='$nid'";
+                                mysqli_query($db, $sql);
+                                header("Location: userdashboard.php");
+                            } 
+                        ?>
                     </div>
                 </form>
-                <form action="" method="post">
-                    <div class="name-box">
+                <form action="userdashboard.php" method="post">
+                    <div class="email-box">
                         <label for="email">Email</label>
                         <input type="email" id="email"name="email" placeholder="Email" required>
-                        <input type="submit" value="Update">
+                        <input type="submit" value="Update" name="update-email">
+                        <?php 
+                            if(isset($_POST['update-email']))
+                            {
+                                $sql="UPDATE person SET email='$_POST[email]' WHERE nid='$nid'";
+                                mysqli_query($db, $sql);
+                                header("Location: userdashboard.php");
+                            } 
+                        ?>
                     </div>
                 </form>
-                <form action="" method="post">
-                    <div class="name-box">
+                <form action="userdashboard.php" method="post">
+                    <div class="phone-box">
                         <label for="phone">Phone</label>
                         <input type="text" id="phone"name="phone" placeholder="Phone Number" required>
-                        <input type="submit" value="Update">
+                        <input type="submit" value="Update" name="update-phone">
+                        <?php 
+                            if(isset($_POST['update-phone']))
+                            {
+                                $sql="UPDATE person SET phone='$_POST[phone]' WHERE nid='$nid'";
+                                mysqli_query($db, $sql);
+                                header("Location: userdashboard.php");
+                            } 
+                        ?>
                     </div>
                 </form>
                 <form action="" method="post">
-                    <div class="name-box">
+                    <div class="blood-box">
                         <label for="blood">Blood Group</label>
                         <select name="blood" id="blood">
                             <option value="A+">A+</option>
@@ -138,11 +166,12 @@ $location=$donor['location'];
                             <option value="O+">O+</option>
                             <option value="O-">O-</option>
                         </select>
-                        <input type="submit" value="Update">
+                        <input type="submit" value="Update" name="update-blood">
+                        
                     </div>
                 </form>
                 <form action="" method="post">
-                    <div class="name-box">
+                    <div class="location-box">
                         <label for="district">District</label>
                         <select name="district">
                             <option value="Bagerhat">Bagerhat</option>
@@ -210,7 +239,8 @@ $location=$donor['location'];
                             <option value="Tangail">Tangail</option>
                             <option value="Thakurgaon">Thakurgaon</option>
                         </select>
-                        <input type="submit" value="Update">
+                        <input type="submit" value="Update" name="update-location">
+                        
                     </div>
                 </form>
             </div>
@@ -221,17 +251,26 @@ $location=$donor['location'];
             <div id="update-login-box">
                 <h2>Update Login Information</h2>
                 <form action="" method="post">
-                    <div class="name-box">
+                    <div class="username-box">
                         <label for="username">Username</label>
                         <input type="username" id="username" name="username" placeholder="Username" required>
                         <input type="submit" value="Update">
                     </div>
                 </form>
-                <form action="" method="post">
-                    <div class="name-box">
+                <form action="userdashboard.php" method="post">
+                    <div class="password-box">
                         <label for="password">Password</label>
                         <input type="password" id="password" name="password" placeholder="Password" required>
-                        <input type="submit" value="Update">
+                        <input type="submit" value="Update" name="update-password">
+                        <?php 
+                            if(isset($_POST['update-password']))
+                            {
+                                $sql="UPDATE users SET password='$_POST[password]' WHERE nid='$nid'";
+                                mysqli_query($db, $sql);
+                                header("Location: userdashboard.php");
+                                
+                            } 
+                        ?>
                     </div>
                 </form>
             </div>
@@ -338,7 +377,23 @@ $location=$donor['location'];
                 </h1>
                 <p>Are you sure you want to delete your account?</p>
                 <form action="" method="post">
-                    <input type="submit" value="Delete">
+                    <input type="submit" value="Delete" name = "delete">
+                    <?php
+                        if(isset($_POST['delete'])){
+                            $sql = "DELETE FROM users WHERE nid = '$nid'";
+                            mysqli_query($db, $sql);
+                            $sql = "DELETE FROM donor WHERE nid = '$nid'";
+                            mysqli_query($db, $sql);
+                            $sql = "DELETE FROM person WHERE nid = '$nid'";
+                            mysqli_query($db, $sql);
+                            $sql = "DELETE FROM recovery WHERE nid = '$nid'";
+                            mysqli_query($db, $sql);
+                            session_destroy();
+                            header('location: index.html');
+                            
+                            
+                        } 
+                     ?>
                 </form>
             </div>
         </div>
