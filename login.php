@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "SELECT nid FROM users WHERE username = '$username' AND password = '$password'";
+    $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
 
     $result = mysqli_query($db, $sql);
 
@@ -18,7 +18,12 @@ if(isset($_POST['submit'])){
         $row = mysqli_fetch_assoc($result);
         $_SESSION['nid'] = $row['nid'];
         $_SESSION['loggedin'] = true;
-        header("Location: userdashboard.php");
+        if($row['type'] == 'admin'){
+            header("Location: admin.php");
+        }
+        else{
+            header("Location: userdashboard.php");
+        }
         
     }
     else{
