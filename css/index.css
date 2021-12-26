@@ -313,6 +313,78 @@ footer{
     padding: 20px;
     text-align: center;
 }
+
+#details-area{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding: 20px;
+    overflow: hidden;
+    border-radius: 5px;
+    border-style: dashed;
+    border-width: 1px;
+    
+}
+
+#status-box, #update-details-box, #update-login-box, #user-search-box, #user-delete-box{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    overflow: hidden;
+    border-radius: 5px;
+    border-style: dashed;
+    border-width: 1px;
+}
+#status-box label, #update-details-box label, #update-login-box label, #user-search-box label, #user-delete-box label{
+    font-size: 16px;
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+#status-box input , #update-details-box input, #update-login-box input, #user-search-box input, #user-delete-box input{
+    width: 50%;
+    height: 40px;
+    border: 1px solid #3d4d57;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    padding-left: 10px;
+    font-size: 16px;
+
+}
+#status-box select, #update-details-box select, #update-login-box select, #user-search-box select, #user-delete-box select{
+    width: 20%;
+    height: 40px;
+    border: 1px solid #3d4d57;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    padding-left: 10px;
+    font-size: 16px;
+
+}
+
+#status-box input[type="submit"], #update-details-box input[type="submit"], #update-login-box input[type="submit"], #user-search-box input[type="submit"], #user-delete-box input[type="submit"]{
+    background-color: #fff;
+    color: #000;
+    width: 20%;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 40px;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#status-box input[type="submit"]:hover, #update-details-box input[type="submit"]:hover, #update-login-box input[type="submit"]:hover, #user-search-box input[type="submit"]:hover, #user-delete-box input[type="submit"]:hover{
+    background-color: #ED0404;
+    color: #fff;
+}
+
 .danger{
     color: #ED0404;    
 }
