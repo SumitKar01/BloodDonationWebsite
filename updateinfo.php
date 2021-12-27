@@ -54,7 +54,18 @@ if(isset($_POST['update-password']))
     mysqli_query($db, $sql);
     header('Location: ' . $_SERVER['HTTP_REFERER']);
     
-} 
+}
+if(isset($_POST['adduserac']))
+{
+    $sql="INSERT INTO users (nid, username, password, type) VALUES ('$_POST[nid]', '$_POST[username]', '$_POST[password]', '$_POST[type]')";
+    mysqli_query($db, $sql);
+    $sql="INSERT INTO person (nid, name, email, phone) VALUES ('$_POST[nid]', '$_POST[name]', '$_POST[email]', '$_POST[phone]')";
+    mysqli_query($db, $sql);
+    $sql="INSERT INTO donor (nid, blood, location) VALUES ('$_POST[nid]', '$_POST[blood]', '$_POST[district]')";
+    mysqli_query($db, $sql);
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    
+}  
 if(isset($_POST['delete'])){
     $sql = "DELETE FROM users WHERE nid = '$nid'";
     mysqli_query($db, $sql);

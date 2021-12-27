@@ -223,7 +223,7 @@ $username=$admin['username'];
                 <h1>
                     Add User Account
                 </h1>
-                <form action="" method="post">
+                <form action="updateinfo.php" method="post">
                     <div class="type-box">
                         <label for="type">Account Type</label>
                         <select name="type" id="type" required>
