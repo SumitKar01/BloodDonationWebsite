@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
         $_SESSION['nid'] = $row['nid'];
         $_SESSION['loggedin'] = true;
         if($row['type'] == 'admin'){
-            header("Location: admin.php");
+            header("Location: admindashboard.php");
         }
         else{
             header("Location: userdashboard.php");

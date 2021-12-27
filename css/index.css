@@ -331,7 +331,7 @@ footer{
     font-size: 16px;
 }
 
-#status-box, #update-details-box, #update-login-box, #user-search-box, #user-delete-box{
+#status-box, #update-details-box, #update-login-box, #user-search-box, #user-delete-box, #searchuserac-box{
     display: flex;
     flex-direction: column;
     margin-top: 10px;
