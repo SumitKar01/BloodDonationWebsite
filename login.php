@@ -21,6 +21,9 @@ if(isset($_POST['submit'])){
         if($row['type'] == 'admin'){
             header("Location: admindashboard.php");
         }
+        else if($row['type'] == 'moderator'){
+            header("Location: moderatordashboard.php");
+        }
         else{
             header("Location: userdashboard.php");
         }

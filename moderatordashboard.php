@@ -1,3 +1,23 @@
+<?php
+session_start();
+$db=mysqli_connect("localhost","root","","blood_donation");
+if(!$db){
+    die("Connection failed: " . mysqli_connect_error());
+}
+$sql="SELECT P.nid,P.name, P.phone, P.email, D.blood, D.location, U.username FROM person P JOIN donor D ON P.nid=D.nid JOIN users U ON P.nid=U.nid HAVING P.nid='".$_SESSION['nid']."'";
+$result=mysqli_query($db, $sql);
+$admin=mysqli_fetch_assoc($result);
+$name=$admin['name'];
+$email=$admin['email'];
+$phone=$admin['phone'];
+$blood=$admin['blood'];
+$location=$admin['location'];
+$username=$admin['username'];
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,8 +37,8 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="">Hello SumitKumar Kar</a></li>
-                    <li><a href="index.html">Logout</a></li>
+                    <li><a href=""><?php echo"Welcome "."$username"; ?></li>
+                    <li><a href="logout.php">Logout</a></li>
 
                 </ul>
             </nav>
@@ -31,25 +51,25 @@
                     Your Details
                 </h1>
                 <table>
-                    <tr>
+                <tr>
                         <td>Name</td>
-                        <td>Sumit Kumar</td>
+                        <td><?php echo"$name"; ?></td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td>su@.com</td>
+                        <td><?php echo"$email"; ?></td>
                     </tr>
                     <tr>
                         <td>Phone</td>
-                        <td>0123456789</td>
+                        <td><?php echo"$phone"; ?></td>
                     </tr>
                     <tr>
                         <td>Address</td>
-                        <td>Dhaka</td>
+                        <td><?php echo"$location"; ?></td>
                     </tr>
                     <tr>
                         <td>Blood Group</td>
-                        <td>A+</td>
+                        <td><?php echo"$blood"; ?></td>
                     </tr>
 
                 </table>
@@ -305,7 +325,7 @@
                         <label for="password">Password</label>
                         <input type="password" id="password" name="password" placeholder="Password" required>
                         <br>
-                        <input type="submit" value="ADD USER">
+                        <input type="submit" value="ADD USER" name="adduserac">
                     </div>
                 </form>
             </div>
@@ -318,8 +338,9 @@
                     Delete Your Account
                 </h1>
                 <p>Are you sure you want to delete your account?</p>
-                <form action="" method="post">
-                    <input type="submit" value="Delete">
+                <form action="updateinfo.php" method="post">
+                    <input type="submit" value="Delete" name = "delete">
+                    
                 </form>
             </div>
         </div>
