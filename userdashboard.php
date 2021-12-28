@@ -243,7 +243,7 @@ $location=$donor['location'];
                 <h1>
                     Search for a Donor
                 </h1>
-                <form action="" method="post">
+                <form action="searchresults.php" method="post">
                     <label for="blood">Blood Group</label>
                     
                     <select name="blood" id="blood">

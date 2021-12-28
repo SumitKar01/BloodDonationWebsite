@@ -17,13 +17,6 @@ $username=$admin['username'];
 
 
 
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -341,6 +334,13 @@ $username=$admin['username'];
         <div class="container">
             <div id="searchuserac-box">
                 <h1>User List</h1>
+                <form action="admindashboard.php" method="post">
+                        <label for="searchusers">Search User</label>
+                        <br>
+                        <input type="text" id="searchusers" name="searchusers" placeholder="Search User">
+                        <input type="submit" value="SEARCH" name="searchuserlist">
+                        <input type="submit" value="CLEAR" name="clearuserlist">
+                </form>
                 <table>
                     <thead>
                         <tr>
@@ -355,19 +355,35 @@ $username=$admin['username'];
                     </thead>
                     <tbody>
                         <?php
-                        $sql=$sql="SELECT P.nid,P.name, P.phone, P.email, D.blood, D.location, U.username FROM person P JOIN donor D ON P.nid=D.nid JOIN users U ON P.nid=U.nid ORDER BY P.name";
+                        if (isset($_POST['searchuserlist'])&&!empty($_POST['searchusers'])) {
+                            $sql="SELECT P.nid,P.name, P.phone, P.email, D.blood, D.location, U.username FROM person P JOIN donor D ON P.nid=D.nid JOIN users U ON P.nid=U.nid WHERE name LIKE '%".$_POST['searchusers']."%' OR email LIKE '%".$_POST['searchusers']."%' OR phone LIKE '%".$_POST['searchusers']."%' OR blood LIKE '%".$_POST['searchusers']."%' OR location LIKE '%".$_POST['searchusers']."%' OR username LIKE '%".$_POST['searchusers']."%'";
+                        }
+                        elseif(isset($_POST['clearuserlist'])){
+                            $sql="SELECT P.nid,P.name, P.phone, P.email, D.blood, D.location, U.username FROM person P JOIN donor D ON P.nid=D.nid JOIN users U ON P.nid=U.nid ORDER BY P.name"; 
+                        }
+                        else{
+                            $sql="SELECT P.nid,P.name, P.phone, P.email, D.blood, D.location, U.username FROM person P JOIN donor D ON P.nid=D.nid JOIN users U ON P.nid=U.nid ORDER BY P.name";    
+                        }
                         $result=mysqli_query($db,$sql);
-                        while($row=mysqli_fetch_array($result)){
+                        if (mysqli_num_rows($result)>0) {
+                            while($row=mysqli_fetch_array($result)){
+                                echo "<tr>";
+                                echo "<td>".$row['name']."</td>";
+                                echo "<td>".$row['email']."</td>";
+                                echo "<td>".$row['phone']."</td>";
+                                echo "<td>".$row['blood']."</td>";
+                                echo "<td>".$row['location']."</td>";
+                                echo "<td>".$row['username']."</td>";
+                                echo "<td><a href='deleteuser.php?nid=".$row['nid']."'>Delete</a></td>";
+                                echo "</tr>";
+                            }    
+                        }
+                        else{
                             echo "<tr>";
-                            echo "<td>".$row['name']."</td>";
-                            echo "<td>".$row['email']."</td>";
-                            echo "<td>".$row['phone']."</td>";
-                            echo "<td>".$row['blood']."</td>";
-                            echo "<td>".$row['location']."</td>";
-                            echo "<td>".$row['username']."</td>";
-                            echo "<td><a href='deleteuser.php?nid=".$row['nid']."'>Delete</a></td>";
+                            echo "<td colspan='7'>No Record Found</td>";
                             echo "</tr>";
                         }
+                        
                         ?>
                     </tbody>
                 </table>
