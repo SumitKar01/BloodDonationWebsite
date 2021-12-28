@@ -40,7 +40,7 @@ if(!$db){
             <div id="results-title">
                 <h1>Search Results</h1>
             </div>
-            <div id="results-table">
+            <div id="results-table-contents">
                 <table>
                     <tr>
                         <th>Name</th>
@@ -69,7 +69,8 @@ if(!$db){
                             echo "</tr>";
                         }   
                     ?>
-                </table>                        
+                </table>   
+            </div>                     
         </div>
     </section>
 </body> 

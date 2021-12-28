@@ -331,6 +331,8 @@ footer{
     font-size: 16px;
 }
 
+
+
 #status-box, #update-details-box, #update-login-box, #user-search-box, #user-delete-box, #searchuserac-box{
     display: flex;
     flex-direction: column;
@@ -388,6 +390,41 @@ footer{
     background-color: #ED0404;
     color: #fff;
 }
+
+#search-userac-table{
+    max-height: 300px;
+    overflow-y: auto;
+    table-layout: fixed;
+}
+#search-userac-table thead th{
+    padding: 5px;
+    position: sticky;
+    font-size: 16px;
+    background: #f2f2f2;
+    top: 0;
+}
+
+
+#results-table-contents table, #search-userac-table table{
+    width: 100%;
+    border-collapse: collapse;
+    overflow-y: auto;
+    border-spacing: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#results-table-contents table, #results-table-contents th, #results-table-contents td, #search-userac-table table, #search-userac-table th, #search-userac-table td{
+    padding: 5px;
+    font-size: 16px;
+    text-align: center;
+    vertical-align: middle;
+    border : 1px solid #3d4d57;
+
+    
+}
+
+
 
 .danger{
     color: #ED0404;    
