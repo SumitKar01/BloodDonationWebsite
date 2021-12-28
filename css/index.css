@@ -391,6 +391,10 @@ footer{
     color: #fff;
 }
 
+#results-table-box{
+    margin-top: 30px;
+}
+
 #search-userac-table{
     max-height: 300px;
     overflow-y: auto;

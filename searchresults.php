@@ -37,39 +37,41 @@ if(!$db){
     </header>
     <section id="results-table">
         <div class="container">
-            <div id="results-title">
-                <h1>Search Results</h1>
-            </div>
-            <div id="results-table-contents">
-                <table>
-                    <tr>
-                        <th>Name</th>
-                        <th>Blood Group</th>
-                        <th>District</th>
-                        <th>Phone</th>
-                        <th>Email</th>
-                    </tr>
-                    <?php
-                        $sql="SELECT P.name, P.phone, P.email, D.blood, D.location FROM person P JOIN donor D ON P.nid=D.nid JOIN users U ON P.nid=U.nid WHERE U.type= 'donor' AND D.blood='$_POST[blood]' AND D.location = '$_POST[district]' ORDER BY P.name"; 
-                        $result=mysqli_query($db,$sql);
-                        if(mysqli_num_rows($result)>0){
-                            while($row=mysqli_fetch_assoc($result)){
+            <div id="results-table-box">
+                <div id="results-title">
+                    <h1>Search Results</h1>
+                </div>
+                <div id="results-table-contents">
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Blood Group</th>
+                            <th>District</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                        </tr>
+                        <?php
+                            $sql="SELECT P.name, P.phone, P.email, D.blood, D.location FROM person P JOIN donor D ON P.nid=D.nid JOIN users U ON P.nid=U.nid WHERE U.type= 'donor' AND D.blood='$_POST[blood]' AND D.location = '$_POST[district]' ORDER BY P.name";
+                            $result=mysqli_query($db,$sql);
+                            if(mysqli_num_rows($result)>0){
+                                while($row=mysqli_fetch_assoc($result)){
+                                    echo "<tr>";
+                                    echo "<td>".$row['name']."</td>";
+                                    echo "<td>".$row['blood']."</td>";
+                                    echo "<td>".$row['location']."</td>";
+                                    echo "<td>".$row['phone']."</td>";
+                                    echo "<td>".$row['email']."</td>";
+                                    echo "</tr>";
+                                }
+                            }
+                            else{
                                 echo "<tr>";
-                                echo "<td>".$row['name']."</td>";
-                                echo "<td>".$row['blood']."</td>";
-                                echo "<td>".$row['location']."</td>";
-                                echo "<td>".$row['phone']."</td>";
-                                echo "<td>".$row['email']."</td>";
+                                echo "<td colspan='5'>No results found</td>";
                                 echo "</tr>";
                             }
-                        }
-                        else{
-                            echo "<tr>";
-                            echo "<td colspan='5'>No results found</td>";
-                            echo "</tr>";
-                        }   
-                    ?>
-                </table>   
+                        ?>
+                    </table>
+                </div>
             </div>                     
         </div>
     </section>
