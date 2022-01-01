@@ -47,7 +47,7 @@ if(($_SESSION['registered'])!=true){
                             <option value="recipient">No</option>
                         </select>
                     </div>
-                    <div class="re">
+                    <div class="recovery">
                         <h2 class="danger">Recovery Information: </h2>
                         <br>
                     </div>

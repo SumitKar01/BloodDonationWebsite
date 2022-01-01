@@ -14,6 +14,7 @@ body{
     overflow: hidden;
     
 }
+
 .button{
     min-width:30%;
     height: 40px;
@@ -231,14 +232,14 @@ header .container nav ul li a:hover{
 /* Login Start */
 
 
-#login-area{
+#login-area, #reset-area{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;  
     
 }
-#login-area h1{
+#login-area h1, #reset-area h1{
     font-size: 30px;
     font-weight: bold;
     color: #3d4d57;
@@ -246,13 +247,13 @@ header .container nav ul li a:hover{
     text-transform: uppercase;
     margin-bottom: 30px;
 }
-#login-box label{
+#login-box label, #reset-box label{
     font-size: 20px;
     font-weight: bold;
     color: #3d4d57;
     
 }
-#login-box input{
+#login-box input, #reset-box input{
     height: 40px;
     border: 1px solid #3d4d57;
     border-radius: 5px;
@@ -263,6 +264,11 @@ header .container nav ul li a:hover{
     font-size: 18px;
 
 }
+#reset-box input{
+    width: 100%;
+
+}
+
 #username-box{
 
     padding-bottom: 10px;
@@ -486,6 +492,11 @@ footer{
 
 }
 
+#reset-box input[type="submit"]:hover{
+    background-color: #ED0404;
+    cursor: pointer;
+    color: #fff;
+}
 
 .danger{
     color: #ED0404;    
