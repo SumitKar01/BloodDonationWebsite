@@ -408,6 +408,47 @@ $username=$admin['username'];
                 </form>
             </div>
         </div>
+    </section>
+    <section id="feedback">
+        <div class="container">
+            <div id="feedback-box">
+                <h1>Feedback</h1>
+                <div id="feedback-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $sql="SELECT * FROM feedback ORDER BY ts DESC"; 
+                            $result=mysqli_query($db,$sql);
+                            if (mysqli_num_rows($result)>0) {
+                                while($row=mysqli_fetch_array($result)){
+                                    echo "<tr>";
+                                    echo "<td>".$row['name']."</td>";
+                                    echo "<td>".$row['email']."</td>";
+                                    echo "<td>".$row['subject']."</td>";
+                                    echo "<td>".$row['msg']."</td>";
+                                    echo "</tr>";
+                                }
+                            }
+                            else{
+                                echo "<tr>";
+                                echo "<td colspan='4'>No Record Found</td>";
+                                echo "</tr>";
+                            }
+                    
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </section>    
     <section id="user-delete">
         <div class="container">

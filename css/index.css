@@ -333,7 +333,7 @@ footer{
 
 
 
-#status-box, #update-details-box, #update-login-box, #user-search-box, #user-delete-box, #searchuserac-box{
+#status-box, #update-details-box, #update-login-box, #user-search-box, #user-delete-box, #searchuserac-box, #feedback-box{
     display: flex;
     flex-direction: column;
     margin-top: 10px;
@@ -395,12 +395,12 @@ footer{
     margin-top: 30px;
 }
 
-#search-userac-table{
+#search-userac-table, #feedback-table{
     max-height: 300px;
     overflow-y: auto;
     table-layout: fixed;
 }
-#search-userac-table thead th{
+#search-userac-table thead th, #feedback-table thead th{
     padding: 5px;
     position: sticky;
     font-size: 16px;
@@ -409,7 +409,7 @@ footer{
 }
 
 
-#results-table-contents table, #search-userac-table table{
+#results-table-contents table, #search-userac-table table, #feedback-table table{
     width: 100%;
     border-collapse: collapse;
     overflow-y: auto;
@@ -418,14 +418,12 @@ footer{
     margin-bottom: 10px;
 }
 
-#results-table-contents table, #results-table-contents th, #results-table-contents td, #search-userac-table table, #search-userac-table th, #search-userac-table td{
+#results-table-contents table, #results-table-contents th, #results-table-contents td, #search-userac-table table, #search-userac-table th, #search-userac-table td, #feedback-table table, #feedback-table th, #feedback-table td{
     padding: 5px;
     font-size: 16px;
     text-align: center;
     vertical-align: middle;
     border : 1px solid #3d4d57;
-
-    
 }
 
 #contact-box{
@@ -495,3 +493,6 @@ footer{
 .success{
     color: #00C851;
 }
+
+
+
