@@ -62,7 +62,8 @@ if(!$db){
                                     echo "<td>".$row['phone']."</td>";
                                     echo "<td>".$row['email']."</td>";
                                     echo "</tr>";
-                                }                                                               }
+                                }                                                               
+                            }
                             else{
                                 echo "<tr>";
                                 echo "<td colspan='5'>No results found</td>";
