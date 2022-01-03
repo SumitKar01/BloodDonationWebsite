@@ -76,6 +76,27 @@ $username=$admin['username'];
             </div>
         </div>
     </section>
+    <section id="total-blood">
+        <div class="container">
+            <div id="blood-box">
+                <h1>Total Blood Reserved</h1>
+                <table>
+                    <?php
+                        $sql = "SELECT blood, COUNT(blood) AS Total FROM donor GROUP BY blood";
+                        $result = mysqli_query($db, $sql);
+                        if(mysqli_num_rows($result) > 0){
+                            while($row = mysqli_fetch_array($result)){
+                                echo "<tr>";
+                                echo "<td>".$row['blood']."</td>";
+                                echo "<td>".$row['Total']."</td>";
+                                echo "</tr>";
+                            }
+                        }
+                    ?>
+                </table>
+            </div>
+        </div>
+    </section>
     <section id="update-details">
         <div class="container">
             <div id="update-details-box">
@@ -331,6 +352,47 @@ $username=$admin['username'];
             </div>
         </div>
     </section>
+    <section id="feedback">
+        <div class="container">
+            <div id="feedback-box">
+                <h1>Feedback</h1>
+                <div id="feedback-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $sql="SELECT * FROM feedback ORDER BY ts DESC"; 
+                            $result=mysqli_query($db,$sql);
+                            if (mysqli_num_rows($result)>0) {
+                                while($row=mysqli_fetch_array($result)){
+                                    echo "<tr>";
+                                    echo "<td>".$row['name']."</td>";
+                                    echo "<td>".$row['email']."</td>";
+                                    echo "<td>".$row['subject']."</td>";
+                                    echo "<td>".$row['msg']."</td>";
+                                    echo "</tr>";
+                                }
+                            }
+                            else{
+                                echo "<tr>";
+                                echo "<td colspan='4'>No Record Found</td>";
+                                echo "</tr>";
+                            }
+                    
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>    
     <section id="user-delete">
         <div class="container">
             <div id="user-delete-box">

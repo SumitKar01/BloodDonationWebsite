@@ -62,13 +62,19 @@ if(!$db){
                                     echo "<td>".$row['phone']."</td>";
                                     echo "<td>".$row['email']."</td>";
                                     echo "</tr>";
-                                }
-                            }
+                                }                                                               }
                             else{
                                 echo "<tr>";
                                 echo "<td colspan='5'>No results found</td>";
                                 echo "</tr>";
                             }
+                            $sql = "SELECT COUNT(blood) FROM donor WHERE blood = '$_POST[blood]' AND location = '$_POST[district]'";
+                            $result = mysqli_query($db, $sql);
+                            $row = mysqli_fetch_assoc($result);
+                            echo "<tr>";
+                            echo "<td colspan='5'>".$row['COUNT(blood)']." Results Matched</td>";
+                            echo "</tr>";
+
                         ?>
                     </table>
                 </div>

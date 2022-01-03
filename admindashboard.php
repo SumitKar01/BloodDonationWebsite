@@ -50,7 +50,7 @@ $username=$admin['username'];
                     Your Details
                 </h1>
                 <table>
-                <tr>
+                    <tr>
                         <td>Name</td>
                         <td><?php echo"$name"; ?></td>
                     </tr>
@@ -71,6 +71,27 @@ $username=$admin['username'];
                         <td><?php echo"$blood"; ?></td>
                     </tr>
 
+                </table>
+            </div>
+        </div>
+    </section>
+    <section id="total-blood">
+        <div class="container">
+            <div id="blood-box">
+                <h1>Total Blood Reserved</h1>
+                <table>
+                    <?php
+                        $sql = "SELECT blood, COUNT(blood) AS Total FROM donor GROUP BY blood";
+                        $result = mysqli_query($db, $sql);
+                        if(mysqli_num_rows($result) > 0){
+                            while($row = mysqli_fetch_array($result)){
+                                echo "<tr>";
+                                echo "<td>".$row['blood']."</td>";
+                                echo "<td>".$row['Total']."</td>";
+                                echo "</tr>";
+                            }
+                        }
+                    ?>
                 </table>
             </div>
         </div>

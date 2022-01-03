@@ -339,7 +339,7 @@ footer{
 
 
 
-#status-box, #update-details-box, #update-login-box, #user-search-box, #user-delete-box, #searchuserac-box, #feedback-box{
+#blood-box, #status-box, #update-details-box, #update-login-box, #user-search-box, #user-delete-box, #searchuserac-box, #feedback-box{
     display: flex;
     flex-direction: column;
     margin-top: 10px;
@@ -424,7 +424,15 @@ footer{
     margin-bottom: 10px;
 }
 
-#results-table-contents table, #results-table-contents th, #results-table-contents td, #search-userac-table table, #search-userac-table th, #search-userac-table td, #feedback-table table, #feedback-table th, #feedback-table td{
+#blood-box table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;    
+}
+
+#blood-box table, #blood-box td, #results-table-contents table, #results-table-contents th, #results-table-contents td, #search-userac-table table, #search-userac-table th, #search-userac-table td, #feedback-table table, #feedback-table th, #feedback-table td{
     padding: 5px;
     font-size: 16px;
     text-align: center;
