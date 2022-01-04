@@ -81,7 +81,7 @@ $username=$admin['username'];
                 <h1>Total Blood Reserved</h1>
                 <table>
                     <?php
-                        $sql = "SELECT blood, COUNT(blood) AS Total FROM donor GROUP BY blood";
+                        $sql = "SELECT blood, COUNT(blood) AS Total FROM donor D JOIN users U ON D.nid=U.nid  WHERE U.type='donor' GROUP BY blood";
                         $result = mysqli_query($db, $sql);
                         if(mysqli_num_rows($result) > 0){
                             while($row = mysqli_fetch_array($result)){
