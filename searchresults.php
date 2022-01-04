@@ -54,7 +54,7 @@ if(!$db){
                             $sql="SELECT P.name, P.phone, P.email, D.blood, D.location FROM person P JOIN donor D ON P.nid=D.nid JOIN users U ON P.nid=U.nid WHERE U.type= 'donor' AND D.blood='$_POST[blood]' AND D.location = '$_POST[district]' ORDER BY P.name";
                             $result=mysqli_query($db,$sql);
                             if(mysqli_num_rows($result)>0){
-                                while($row=mysqli_fetch_assoc($result)){
+                                while($row=mysqli_fetch_array($result)){
                                     echo "<tr>";
                                     echo "<td>".$row['name']."</td>";
                                     echo "<td>".$row['blood']."</td>";
@@ -69,9 +69,9 @@ if(!$db){
                                 echo "<td colspan='5'>No results found</td>";
                                 echo "</tr>";
                             }
-                            $sql = "SELECT COUNT(blood) FROM donor WHERE blood = '$_POST[blood]' AND location = '$_POST[district]'";
+                            $sql = "SELECT COUNT(blood) FROM donor D JOIN users U ON D.nid=U.nid WHERE blood = '$_POST[blood]' AND location = '$_POST[district]' AND type = 'donor'";
                             $result = mysqli_query($db, $sql);
-                            $row = mysqli_fetch_assoc($result);
+                            $row = mysqli_fetch_array($result);
                             echo "<tr>";
                             echo "<td colspan='5'>".$row['COUNT(blood)']." Results Matched</td>";
                             echo "</tr>";
