@@ -63,6 +63,8 @@ if(isset($_POST['adduserac']))
     mysqli_query($db, $sql);
     $sql="INSERT INTO donor (nid, blood, location) VALUES ('$_POST[nid]', '$_POST[blood]', '$_POST[district]')";
     mysqli_query($db, $sql);
+    $sql="INSERT INTO recovery (nid, pet, friend) VALUES ('$_POST[nid]', '$_POST[pet]', '$_POST[friend]')";
+    mysqli_query($db, $sql);
     header('Location: ' . $_SERVER['HTTP_REFERER']);
     
 }  
